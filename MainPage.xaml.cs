@@ -12,7 +12,7 @@
         async void redLed(object sender, ToggledEventArgs e)
         {
             if (e.Value)
-                await client.GetAsync("http://IPonred");
+                await client.GetAsync("http://IP/onred");
             else
                 await client.GetAsync("http://IP/offred");
         }
