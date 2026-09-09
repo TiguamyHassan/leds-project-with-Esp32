@@ -16,7 +16,7 @@ void setup() {
   pinMode(RedLedPin, OUTPUT);
   pinMode(GreenLedPin, OUTPUT);
 
-  WiFi.begin("inwi Home 4GBB8583", "0641224048");
+  WiFi.begin("WIFI NAME", "WIFI PASSWORD");
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(100);
