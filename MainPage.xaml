@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="led_turn_off.MainPage" 
+             Background="#00068A"
+             
+             >
+
+    <VerticalStackLayout Spacing="90" Margin="40">
+        <Label Text=" Esp32 project"
+               FontAttributes="Bold"
+               FontSize="40"
+               HorizontalOptions="Center"
+               TextColor="Yellow"
+               />
+
+       
+
+        <HorizontalStackLayout VerticalOptions="Center" Spacing="85">
+            <Label     Text="Red led :"
+                       FontSize="40"
+                       TextColor="Red"
+                       FontAttributes="Bold"
+                       />
+            <Switch HorizontalOptions="Center" OnColor="Green" Scale="1.4"
+                    OffColor="Red" ThumbColor="Yellow" Toggled="redLed"/>
+            <Label/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center" Spacing="70">
+            <Label     Text="Blue led :"
+                       FontSize="40"
+                       TextColor="Blue"
+                       FontAttributes="Bold"
+                       />
+            <Switch HorizontalOptions="Start" OnColor="Green" Scale="1.4"
+                    OffColor="Red" ThumbColor="Yellow" Toggled="blueLed"/>
+            <Label/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center" Spacing="50">
+            <Label     Text="Green led :"
+                       FontSize="40"
+                       TextColor="Green"
+                       FontAttributes="Bold"
+                       />
+            <Switch HorizontalOptions="Start" OnColor="Green" Scale="1.4"
+                    OffColor="Red" ThumbColor="Yellow" Toggled="greenLed"/>
+            <Label/>
+        </HorizontalStackLayout>
+        
+      
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
