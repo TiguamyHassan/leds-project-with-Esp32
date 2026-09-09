@@ -2,9 +2,9 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-int BlueLedPin = 32;
-int RedLedPin = 27;
-int GreenLedPin = 33;
+int BlueLedPin = 16;
+int RedLedPin = 17;
+int GreenLedPin = 5;
 
 WebServer server(80);
 
