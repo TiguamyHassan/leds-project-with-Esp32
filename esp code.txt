@@ -1,0 +1,39 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <WebServer.h>
+
+int BlueLedPin = 32;
+
+WebServer server(80);
+
+void setup() {
+
+  Serial.begin(115200);
+
+  pinMode(BlueLedPin, OUTPUT);
+
+  WiFi.begin("inwi Home 4GBB8583", "0641224048");
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(100);
+  }
+
+  Serial.println(WiFi.localIP());
+
+  server.on("/on", []() {
+    digitalWrite(BlueLedPin, HIGH);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.on("/off", []() {
+    digitalWrite(BlueLedPin, LOW);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.begin();
+}
+
+void loop() {
+  server.handleClient();
+}
+
