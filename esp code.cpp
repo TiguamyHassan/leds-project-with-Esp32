@@ -3,6 +3,8 @@
 #include <WebServer.h>
 
 int BlueLedPin = 32;
+int RedLedPin = 27;
+int GreenLedPin = 33;
 
 WebServer server(80);
 
@@ -11,8 +13,10 @@ void setup() {
   Serial.begin(115200);
 
   pinMode(BlueLedPin, OUTPUT);
+  pinMode(RedLedPin, OUTPUT);
+  pinMode(GreenLedPin, OUTPUT);
 
-  WiFi.begin("YOUR WIFI NAME", "WIFI PASSWORD");
+  WiFi.begin("inwi Home 4GBB8583", "0641224048");
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(100);
@@ -20,13 +24,33 @@ void setup() {
 
   Serial.println(WiFi.localIP());
 
-  server.on("/on", []() {
+  server.on("/onblue", []() {
     digitalWrite(BlueLedPin, HIGH);
     server.send(200, "text/plain", "OK");
   });
 
-  server.on("/off", []() {
+  server.on("/offblue", []() {
     digitalWrite(BlueLedPin, LOW);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.on("/onred", []() {
+    digitalWrite(RedLedPin, HIGH);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.on("/offred", []() {
+    digitalWrite(RedLedPin, LOW);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.on("/ongreen", []() {
+    digitalWrite(GreenLedPin, HIGH);
+    server.send(200, "text/plain", "OK");
+  });
+
+  server.on("/offgreen", []() {
+    digitalWrite(GreenLedPin, LOW);
     server.send(200, "text/plain", "OK");
   });
 
@@ -36,4 +60,3 @@ void setup() {
 void loop() {
   server.handleClient();
 }
-
